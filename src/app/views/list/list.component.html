@@ -1,0 +1,26 @@
+<div class="page-wrapper">
+  <div class="list-header">
+    <img class="app-logo" src="assets/logo.png" alt="Rick and Morty logo">
+
+    <div class="search-wrapper">
+      <input class="search-input" placeholder="Search a character here" [(ngModel)]="searchControl">
+      <button class="search-button" (click)="searchCharacter()">Search</button>
+    </div>
+  </div>
+
+  <div class="characters-grid">
+    <ng-container *ngFor="let character of characterList">
+      <io-character-card [data]="character"></io-character-card>
+    </ng-container>
+  </div>
+
+  <div class="pagination">
+    <div>
+      <button *ngIf="hasPreviousPage" class="pagination-button" (click)="goToPreviousPage()">< Previous</button>
+    </div>
+
+    <div>
+      <button *ngIf="hasNextPage" class="pagination-button" (click)="goToNextPage()">Next ></button>
+    </div>
+  </div>
+</div>

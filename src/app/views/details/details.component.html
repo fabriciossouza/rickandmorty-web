@@ -1,0 +1,27 @@
+<div class="page-wrapper">
+  <div class="details-header">
+    <a class="return-link" routerLink="/">< Back</a>
+
+    <a class="return-image" routerLink="/">
+
+    </a>
+  </div>
+
+  <div class="char-info-wrapper">
+    <div class="char-image" [style.backgroundImage]="'url(' + data.image + ')'"></div>
+
+    <div>
+      <p class="char-name">{{ data.name }}</p>
+      <p class="char-info"><span class="char-info-label">Species:</span> {{ data.species }}</p>
+      <p class="char-info"><span class="char-info-label">Gender:</span> {{ data.gender }}</p>
+      <p class="char-info"><span class="char-info-label">Origin:</span> {{ data.origin.name }}</p>
+      <p class="char-info"><span class="char-info-label">Status:</span> {{ data.status }}</p>
+    </div>
+  </div>
+
+  <div class="char-episode-list">
+    <ng-container *ngFor="let episode of episodeList">
+      <io-episode-card [data]="episode"></io-episode-card>
+    </ng-container>
+  </div>
+</div>
