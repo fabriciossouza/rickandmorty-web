@@ -10,8 +10,4 @@ export class CharactersService {
   getCharacters(params = {}) {
     return this.http.get(`${this.BASE_URL}/character`, { params });
   }
-
-  getCharacterDetails(id: number) {
-    return this.http.get(`${this.BASE_URL}/character/${id}`);
-  }
 }

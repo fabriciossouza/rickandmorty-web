@@ -1,4 +1,4 @@
-<a class="card-wrapper" [routerLink]="['details', data.id]">
+<a class="card-wrapper" [routerLink]="['details']" [state]="{ data: data }">
   <div class="char-image" [style.backgroundImage]="'url(' + data.image + ')'">
     <div class="char-status">{{ data.status }}</div>
   </div>

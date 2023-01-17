@@ -1,71 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CharactersService } from 'src/app/services/characters.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: 'details.component.html',
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  data: any;
+  data: any = null;
 
-  episodeList = [{
-    id: 28,
-    name: 'The Ricklantis Mixup',
-    air_date: 'September 10, 2017',
-    episode: {
-      season: 'S03',
-      number: 'E07',
-    },
-  },{
-    id: 28,
-    name: 'The Ricklantis Mixup',
-    air_date: 'September 10, 2017',
-    episode: {
-      season: 'S03',
-      number: 'E07',
-    },
-  },{
-    id: 28,
-    name: 'The Ricklantis Mixup',
-    air_date: 'September 10, 2017',
-    episode: {
-      season: 'S03',
-      number: 'E07',
-    },
-  },{
-    id: 28,
-    name: 'The Ricklantis Mixup',
-    air_date: 'September 10, 2017',
-    episode: {
-      season: 'S03',
-      number: 'E07',
-    },
-  },{
-    id: 28,
-    name: 'The Ricklantis Mixup',
-    air_date: 'September 10, 2017',
-    episode: {
-      season: 'S03',
-      number: 'E07',
-    },
-  }]
-
-  constructor(
-    private charactersService: CharactersService,
-    private activatedRoute: ActivatedRoute,
-  ) { }
+  constructor(private router: Router) {
+    this.data = this.router.getCurrentNavigation()?.extras.state?.['data'];
+  }
 
   ngOnInit() {
-    this.getCharacterById();
+    this.validateData();
   }
 
-  private getCharacterById() {
-    this.activatedRoute.params.subscribe((params: any) => this.getCharacterDetails(params.id))
-  }
-
-  private getCharacterDetails(id: number) {
-    this.charactersService.getCharacterDetails(id)
-      .subscribe((res: any) => this.data = res)
+  private validateData() {
+    if (!this.data) {
+      this.router.navigate(['/']);
+    }
   }
 }
