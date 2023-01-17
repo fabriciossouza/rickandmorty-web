@@ -5,9 +5,17 @@
 **The Rick and Morty** is a page based on the television show 
 
 ## Website
-You can check the code of the website [here](https://rickandmorty.herokuapp.com)
+You can check the website [here](https://rickandmorty.herokuapp.com)
 
-## Java 
+## Technology Stack:
+- HTML
+- CSS
+- Typescript 4
+- Angular 14
+- Jasmine 4
+- Docker
+
+## API in Java 
 The Rick and Morty API Java. 
 
 - [View on GitHub](https://github.com/fabriciossouza/rickandmorty-api)

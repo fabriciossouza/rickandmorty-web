@@ -1,6 +1,7 @@
 <a class="card-wrapper" [routerLink]="['details']" [state]="{ data: data }">
   <div class="char-image" [style.backgroundImage]="'url(' + data.image + ')'">
     <div class="char-status">{{ data.status }}</div>
+    <div class="char-episode">{{ data.Episodes.length }}</div>
   </div>
 
   <div class="char-name">
